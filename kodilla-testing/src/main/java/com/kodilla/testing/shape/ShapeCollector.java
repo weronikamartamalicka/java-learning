@@ -5,12 +5,7 @@ import java.util.List;
 public class ShapeCollector {
 
     private List<Shape> shapes = new ArrayList<>();
-    private Shape shape;
-
-    public ShapeCollector(Shape shape) {
-        this.shape = shape;
-    }
-
+    
     public void addFigure(Shape shape) {
         shapes.add(shape);
     }

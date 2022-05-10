@@ -32,7 +32,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testAddFigure() {
             Shape circle = new Circle("circle", 30.5);
-            ShapeCollector circleCollector = new ShapeCollector(circle);
+            ShapeCollector circleCollector = new ShapeCollector();
             circleCollector.addFigure(circle);
 
             Assertions.assertEquals(1, circleCollector.getFiguresQuantity());
@@ -41,7 +41,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testRemoveFigure() {
             Shape circle = new Circle("circle", 30.5);
-            ShapeCollector circleCollector = new ShapeCollector(circle);
+            ShapeCollector circleCollector = new ShapeCollector();
             circleCollector.addFigure(circle);
 
             boolean result = circleCollector.removeFigure(circle);
@@ -53,7 +53,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testRemoveFigureNotExisting() {
             Shape circle = new Circle("circle", 30.5);
-            ShapeCollector circleCollector = new ShapeCollector(circle);
+            ShapeCollector circleCollector = new ShapeCollector();
 
             boolean result = circleCollector.removeFigure(circle);
 
@@ -63,7 +63,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testGetFigure() {
             Shape circle = new Circle("circle", 30.5);
-            ShapeCollector circleCollector = new ShapeCollector(circle);
+            ShapeCollector circleCollector = new ShapeCollector();
             circleCollector.addFigure(circle);
             Shape retrievedFigure = circleCollector.getFigure(0);
 
@@ -73,7 +73,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testShowFigures() {
             Shape circle = new Circle("circle", 30.5);
-            ShapeCollector circleCollector = new ShapeCollector(circle);
+            ShapeCollector circleCollector = new ShapeCollector();
             circleCollector.addFigure(circle);
             String showedFigure = circleCollector.showFigures();
 
@@ -88,7 +88,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testAddFigure() {
             Shape square = new Square("square", 32.5);
-            ShapeCollector squareCollector = new ShapeCollector(square);
+            ShapeCollector squareCollector = new ShapeCollector();
             squareCollector.addFigure(square);
 
             Assertions.assertEquals(1, squareCollector.getFiguresQuantity());
@@ -97,7 +97,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testRemoveFigure() {
             Shape square = new Square("square", 32.5);
-            ShapeCollector squareCollector = new ShapeCollector(square);
+            ShapeCollector squareCollector = new ShapeCollector();
             squareCollector.addFigure(square);
 
             boolean result = squareCollector.removeFigure(square);
@@ -109,7 +109,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testRemoveFigureNotExisting() {
             Shape square = new Square("square", 32.5);
-            ShapeCollector squareCollector = new ShapeCollector(square);
+            ShapeCollector squareCollector = new ShapeCollector();
 
             boolean result = squareCollector.removeFigure(square);
 
@@ -119,7 +119,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testGetFigure() {
             Shape square = new Square("square", 32.5);
-            ShapeCollector squareCollector = new ShapeCollector(square);
+            ShapeCollector squareCollector = new ShapeCollector();
             squareCollector.addFigure(square);
             Shape retrievedFigure = squareCollector.getFigure(0);
 
@@ -129,7 +129,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testShowFigures() {
             Shape square = new Square("square", 32.5);
-            ShapeCollector squareCollector = new ShapeCollector(square);
+            ShapeCollector squareCollector = new ShapeCollector();
             squareCollector.addFigure(square);
             String showedFigure = squareCollector.showFigures();
 
@@ -144,7 +144,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testAddFigure() {
             Shape triangle = new Triangle("triangle", 30.5);
-            ShapeCollector triangleCollector = new ShapeCollector(triangle);
+            ShapeCollector triangleCollector = new ShapeCollector();
             triangleCollector.addFigure(triangle);
 
             Assertions.assertEquals(1, triangleCollector.getFiguresQuantity());
@@ -153,7 +153,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testRemoveFigure() {
             Shape triangle = new Triangle("triangle", 30.5);
-            ShapeCollector triangleCollector = new ShapeCollector(triangle);
+            ShapeCollector triangleCollector = new ShapeCollector();
             triangleCollector.addFigure(triangle);
 
             boolean result = triangleCollector.removeFigure(triangle);
@@ -165,7 +165,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testRemoveFigureNotExisting() {
             Shape triangle = new Triangle("triangle", 30.5);
-            ShapeCollector triangleCollector = new ShapeCollector(triangle);
+            ShapeCollector triangleCollector = new ShapeCollector();
 
             boolean result = triangleCollector.removeFigure(triangle);
 
@@ -175,7 +175,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testGetFigure() {
             Shape triangle = new Triangle("triangle", 30.5);
-            ShapeCollector triangleCollector = new ShapeCollector(triangle);
+            ShapeCollector triangleCollector = new ShapeCollector();
             triangleCollector.addFigure(triangle);
             Shape retrievedFigure = triangleCollector.getFigure(0);
 
@@ -185,7 +185,7 @@ public class ShapeCollectorTestSuit {
         @Test
         public void testShowFigures() {
             Shape triangle = new Triangle("triangle", 30.5);
-            ShapeCollector triangleCollector = new ShapeCollector(triangle);
+            ShapeCollector triangleCollector = new ShapeCollector();
             triangleCollector.addFigure(triangle);
             String showedFigure = triangleCollector.showFigures();
 

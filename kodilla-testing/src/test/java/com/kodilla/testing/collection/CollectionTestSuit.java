@@ -35,29 +35,27 @@ public class CollectionTestSuit {
         @DisplayName("Testing empty list")
         public void testOddNumbersExterminatorEmptylist() {
 
-            List<Integer> numbers = new ArrayList<>();
+            List<Integer> numbers = Arrays.asList();
 
             OddNumbersExterminator exterminator = new OddNumbersExterminator();
-            List<Integer> temporaryList = exterminator.exterminate(numbers);
+            exterminator.exterminate(numbers);
 
             Assertions.assertEquals(0, exterminator.getEvenNumbersQuantity());
-            Assertions.assertNull(exterminator.exterminate(numbers));
         }
 
         @Test
         @DisplayName("Testing normal list")
         public void testOddNumbersExterminatorNormalList() {
-            List<Integer> numbers = new ArrayList<>();
-           numbers.add(3);
-           numbers.add(4);
+
+            List<Integer> numbers = Arrays.asList(3,4);
+            List<Integer> testingNumbers = Arrays.asList(4);
 
            OddNumbersExterminator exterminator = new OddNumbersExterminator();
-           List<Integer> temporaryList = exterminator.exterminate(numbers);
-           int[] b = new int[]{4};
+           List <Integer> temporaryList = exterminator.exterminate(numbers);
 
             Assertions.assertEquals(1, exterminator.getEvenNumbersQuantity());
 
-            boolean result = Arrays.equals(exterminator.getEvenNumbersAsArray(),b);
+            boolean result = temporaryList.equals(testingNumbers);
             Assertions.assertTrue(result);
         }
 
