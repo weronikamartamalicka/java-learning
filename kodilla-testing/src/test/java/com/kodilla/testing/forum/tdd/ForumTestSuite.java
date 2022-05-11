@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 
 @Nested
 @DisplayName("TDD: Forum Test Suite \uD83D\uDE31")
-public class ForumTestSuit {
+public class ForumTestSuite {
 
     private static int testCounter = 0;
 

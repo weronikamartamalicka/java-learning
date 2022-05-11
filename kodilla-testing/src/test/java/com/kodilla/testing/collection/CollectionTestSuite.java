@@ -2,13 +2,12 @@ package com.kodilla.testing.collection;
 
 import org.junit.jupiter.api.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Nested
 @DisplayName("Collection test suit")
-public class CollectionTestSuit {
+public class CollectionTestSuite {
     private static int testCounter = 0;
 
     @BeforeAll

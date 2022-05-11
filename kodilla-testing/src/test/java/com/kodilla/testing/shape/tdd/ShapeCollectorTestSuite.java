@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 
 @Nested
 @DisplayName("TDD: Shape Collector Test Suite \uD83D\uDE31")
-public class ShapeCollectorTestSuit {
+public class ShapeCollectorTestSuite {
 
     private static int testCounter = 0;
 
