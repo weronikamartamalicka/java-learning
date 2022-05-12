@@ -8,10 +8,13 @@ public class LibraryUser {
     String lastName;
     int peselId;
 
-    public LibraryUser(String firstName, String lastName, int peselId) {
+    int booksQuantity;
+
+    public LibraryUser(String firstName, String lastName, int peselId, int booksQuantity) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.peselId = peselId;
+        this.booksQuantity = booksQuantity;
     }
 
     public String getFirstName() {
@@ -26,6 +29,10 @@ public class LibraryUser {
         return peselId;
     }
 
+    public int getBooksQuantity() {
+        return booksQuantity;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -36,6 +43,10 @@ public class LibraryUser {
 
     public void setPeselId(int peselId) {
         this.peselId = peselId;
+    }
+
+    public void setBooksQuantity(int booksQuantity) {
+        this.booksQuantity = booksQuantity;
     }
 
     @Override
