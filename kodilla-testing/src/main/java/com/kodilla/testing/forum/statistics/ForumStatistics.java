@@ -37,26 +37,20 @@ public class ForumStatistics {
         else if(usersCount == 0){
 
             double averageOfCommentsPerPost = commentsCount / postsCount;
-            double averageOfPostsPerUser = 0;
-            double averageOfCommentsPerUser = 0;
 
             this.setPostsCount(postsCount);
             this.setUsersCount(usersCount);
             this.setPostsCount(postsCount);
             this.setAverageOfCommentsPerPost(averageOfCommentsPerPost);
-            this.setAverageOfCommentsPerUser(averageOfCommentsPerUser);
-            this.setAverageOfPostsPerUser(averageOfPostsPerUser);
         }
         else {
 
             double averageOfPostsPerUser = postsCount / usersCount;
             double averageOfCommentsPerUser = commentsCount / usersCount;
-            double averageOfCommentsPerPost = 0;
 
             this.setPostsCount(postsCount);
             this.setUsersCount(usersCount);
             this.setPostsCount(postsCount);
-            this.setAverageOfCommentsPerPost(averageOfCommentsPerPost);
             this.setAverageOfCommentsPerUser(averageOfCommentsPerUser);
             this.setAverageOfPostsPerUser(averageOfPostsPerUser);
         }
