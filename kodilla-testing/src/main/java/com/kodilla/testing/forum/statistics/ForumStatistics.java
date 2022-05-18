@@ -1,27 +1,21 @@
 package com.kodilla.testing.forum.statistics;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ForumStatistics {
 
-    int usersCount = 0;
-    int postsCount = 0;
-    int commentsCount = 0;
+    double usersCount = 0.0;
+    double postsCount = 0.0;
+    double commentsCount = 0.0;
     double averageOfPostsPerUser = 0.0;
     double averageOfCommentsPerUser = 0.0;
     double averageOfCommentsPerPost = 0.0;
-    List<String>listOfUsers;
-
-
 
     public void calculateAdvStatistics(Statistics statistics) {
 
-        int usersCount = this.usersCount();
-        int postsCount = this.postsCount();
-        int commentsCount = this.commentsCount();
+        double usersCount = statistics.usersNames().size();
+        double postsCount = statistics.postsCount();
+        double commentsCount = statistics.commentsCount();
 
-        if(usersCount != 0 && postsCount != 0) {
+        if(usersCount != 0.0 && postsCount != 0.0) {
 
             double averageOfPostsPerUser = postsCount / usersCount;
             double averageOfCommentsPerUser = commentsCount / usersCount;
@@ -29,18 +23,18 @@ public class ForumStatistics {
 
             this.setPostsCount(postsCount);
             this.setUsersCount(usersCount);
-            this.setPostsCount(postsCount);
+            this.setCommentsCount(commentsCount);
             this.setAverageOfCommentsPerPost(averageOfCommentsPerPost);
             this.setAverageOfCommentsPerUser(averageOfCommentsPerUser);
             this.setAverageOfPostsPerUser(averageOfPostsPerUser);
         }
-        else if(usersCount == 0){
+        else if(usersCount == 0.0){
 
             double averageOfCommentsPerPost = commentsCount / postsCount;
 
             this.setPostsCount(postsCount);
             this.setUsersCount(usersCount);
-            this.setPostsCount(postsCount);
+            this.setCommentsCount(commentsCount);
             this.setAverageOfCommentsPerPost(averageOfCommentsPerPost);
         }
         else {
@@ -50,7 +44,7 @@ public class ForumStatistics {
 
             this.setPostsCount(postsCount);
             this.setUsersCount(usersCount);
-            this.setPostsCount(postsCount);
+            this.setCommentsCount(commentsCount);
             this.setAverageOfCommentsPerUser(averageOfCommentsPerUser);
             this.setAverageOfPostsPerUser(averageOfPostsPerUser);
         }
@@ -60,22 +54,15 @@ public class ForumStatistics {
         System.out.println("Post count: " + postsCount + "Users count" + usersCount + "Comments count" + commentsCount);
     }
 
-    public List<String> usersNames(List<String> usersNames) {
-        listOfUsers = new ArrayList<>();
-        listOfUsers.addAll(usersNames);
-        return listOfUsers;
+    public double usersCount() {
+        return usersCount;
     }
 
-    public int usersCount() {
-        int result = listOfUsers.size();
-        return result;
-    }
-
-    public int postsCount() {
+    public double postsCount() {
         return postsCount;
     }
 
-    public int commentsCount() {
+    public double commentsCount() {
         return commentsCount;
     }
 
@@ -91,15 +78,15 @@ public class ForumStatistics {
         return averageOfCommentsPerPost;
     }
 
-    public void setUsersCount(int usersCount) {
+    public void setUsersCount(double usersCount) {
         this.usersCount = usersCount;
     }
 
-    public void setPostsCount(int postsCount) {
+    public void setPostsCount(double postsCount) {
         this.postsCount = postsCount;
     }
 
-    public void setCommentsCount(int commentsCount) {
+    public void setCommentsCount(double commentsCount) {
         this.commentsCount = commentsCount;
     }
 
