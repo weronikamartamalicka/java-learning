@@ -1,20 +1,26 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.*;
+import com.kodilla.stream.forumUser.Forum;
+import com.kodilla.stream.forumUser.ForumUser;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
+        Forum forum = new Forum();
+        Map<Integer,ForumUser> resultList = forum.getUserList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> 2022 - forumUser.getDateOfBirth().getYear() >= 20)
+                .filter(forumUser -> forumUser.getPostsCount() >= 1)
+                .collect(Collectors.toMap(ForumUser::getPeselId, forumUser -> forumUser));
 
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
+        resultList.entrySet().stream()
+                .forEach(System.out::println);
 
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("Doll",(text) -> text + "DEF");
-        poemBeautifier.beautify("Doll",(text) -> text.toUpperCase());
-        poemBeautifier.beautify("Doll",(text) -> text.toLowerCase());
-        poemBeautifier.beautify("Doll",(text) -> text.substring(1,3));
-        poemBeautifier.beautify(" Doll doll    doll ",(text) -> text.trim());
+        //System.out.println(resultList);
     }
 }
+
+
