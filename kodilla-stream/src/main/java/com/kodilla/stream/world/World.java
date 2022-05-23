@@ -7,13 +7,21 @@ import java.util.List;
 
 public final class World implements PeopleCount {
 
-    private final List<List<PeopleCount>> worldList = new ArrayList<List<PeopleCount>>();
+    private final List<Continent> continentList = new ArrayList<>();
+
+    public void addContinent(Continent continent) {
+        continentList.add(continent);
+    }
+
+    public List<Continent> getContinentList() {
+        return new ArrayList<>(continentList);
+    }
 
     public BigDecimal getPeopleQuantity() {
-
-        return worldList.stream()
-                .flatMap(list -> list.stream())
+        return continentList.stream()
+                .flatMap(continent -> continent.getListOfCountries().stream())
                 .map(PeopleCount::getPeopleQuantity)
-                .reduce(BigDecimal.ZERO, (sum,current) -> sum = sum.add(current));
+                .reduce(BigDecimal.ZERO,(sum,current) -> sum = sum.add(current));
+
     }
 }

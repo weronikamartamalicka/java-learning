@@ -1,7 +1,6 @@
 package com.kodilla.stream.world;
 
 import org.junit.jupiter.api.Test;
-import com.kodilla.stream.world.*;
 import org.testng.Assert;
 
 import java.math.BigDecimal;
@@ -14,34 +13,33 @@ public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity() {
 
-        World world = new World();
-        PeopleCount continent = new Spain();
-        List<PeopleCount> listOfEuropeCountries = new ArrayList<>();
 
-        listOfEuropeCountries.add(new Italy());
-        listOfEuropeCountries.add(new Spain());
-        listOfEuropeCountries.add(new Portugal());
+        Continent listOfEuropeCountries = new Continent();
 
-        List<PeopleCount>listOfAmericaNorthCountries = new ArrayList<>();
+        listOfEuropeCountries.addCountry(new Italy());
+        listOfEuropeCountries.addCountry(new Spain());
+        listOfEuropeCountries.addCountry(new Portugal());
 
-        listOfAmericaNorthCountries.add(new Canada());
-        listOfAmericaNorthCountries.add(new Brazil());
-        listOfAmericaNorthCountries.add(new Chile());
+        Continent listOfAmericaNorthCountries = new Continent();
 
-        List<PeopleCount>listOfAmericaSouthCountries = new ArrayList<>();
+        listOfAmericaNorthCountries.addCountry(new Canada());
+        listOfAmericaNorthCountries.addCountry(new Brazil());
+        listOfAmericaNorthCountries.addCountry(new Chile());
 
-        listOfAmericaSouthCountries.add(new Cuba());
-        listOfAmericaSouthCountries.add(new Peru());
-        listOfAmericaSouthCountries.add(new Jamaica());
+        Continent listOfAmericaSouthCountries = new Continent();
 
-        List<List<PeopleCount>>worldList = new ArrayList<>();
-        worldList.add(new ArrayList<>(listOfEuropeCountries));
-        worldList.add(new ArrayList<>(listOfAmericaSouthCountries));
-        worldList.add(new ArrayList<>(listOfAmericaNorthCountries));
+        listOfAmericaSouthCountries.addCountry(new Cuba());
+        listOfAmericaSouthCountries.addCountry(new Peru());
+        listOfAmericaSouthCountries.addCountry(new Jamaica());
 
-        BigDecimal resultOfPeopleQuantity = world.getPeopleQuantity();
+        World listOfContinents = new World();
+        listOfContinents.addContinent(listOfEuropeCountries);
+        listOfContinents.addContinent(listOfAmericaNorthCountries);
+        listOfContinents.addContinent(listOfAmericaSouthCountries);
 
-        BigDecimal expectedResultOfPeopleQuantity = new BigDecimal("123456789");
+        BigDecimal resultOfPeopleQuantity = listOfContinents.getPeopleQuantity();
+
+        BigDecimal expectedResultOfPeopleQuantity = new BigDecimal("10099999977970435662660911010");
 
         Assert.assertEquals(resultOfPeopleQuantity,expectedResultOfPeopleQuantity);
     }

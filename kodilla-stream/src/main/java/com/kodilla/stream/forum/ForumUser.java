@@ -52,7 +52,7 @@ public final class ForumUser {
     }
 
     public Set<ForumUser> getFriends() {
-        return friends;
+        return new HashSet<>(friends);
     }
 
     @Override
