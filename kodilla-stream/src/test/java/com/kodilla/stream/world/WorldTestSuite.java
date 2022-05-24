@@ -16,21 +16,21 @@ public class WorldTestSuite {
 
         Continent listOfEuropeCountries = new Continent();
 
-        listOfEuropeCountries.addCountry(new Italy());
-        listOfEuropeCountries.addCountry(new Spain());
-        listOfEuropeCountries.addCountry(new Portugal());
+        listOfEuropeCountries.addCountry(new Country("Italy", new BigDecimal("996554222467890")));
+        listOfEuropeCountries.addCountry(new Country("Spain", new BigDecimal("99655422245467890")));
+        listOfEuropeCountries.addCountry(new Country("Portugal", new BigDecimal("263466353365567890")));
 
         Continent listOfAmericaNorthCountries = new Continent();
 
-        listOfAmericaNorthCountries.addCountry(new Canada());
-        listOfAmericaNorthCountries.addCountry(new Brazil());
-        listOfAmericaNorthCountries.addCountry(new Chile());
+        listOfAmericaNorthCountries.addCountry(new Country("Canada", new BigDecimal("99999999901263466365567890")));
+        listOfAmericaNorthCountries.addCountry(new Country("Brazil", new BigDecimal("9999999966901263466365567890")));
+        listOfAmericaNorthCountries.addCountry(new Country("Chile", new BigDecimal("9901263466365567890")));
 
         Continent listOfAmericaSouthCountries = new Continent();
 
-        listOfAmericaSouthCountries.addCountry(new Cuba());
-        listOfAmericaSouthCountries.addCountry(new Peru());
-        listOfAmericaSouthCountries.addCountry(new Jamaica());
+        listOfAmericaSouthCountries.addCountry(new Country("Cuba", new BigDecimal("999567890")));
+        listOfAmericaSouthCountries.addCountry(new Country("Peru", new BigDecimal("01263466365567890")));
+        listOfAmericaSouthCountries.addCountry(new Country("Jamaica", new BigDecimal("901263466365567890")));
 
         World listOfContinents = new World();
         listOfContinents.addContinent(listOfEuropeCountries);
