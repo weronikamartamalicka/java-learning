@@ -14,17 +14,29 @@ public final class GlutenFreeShopProducer implements Manufacturer{
     }
 
     @Override
-    public OrderDto process(OrderRequest orderRequest) {
-        boolean idOrdered = productOrderService.order(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getShippingService(), orderRequest.getTime());
-        if(idOrdered) {
-            double invoice = orderRequest.getProduct().getValueOfInvoice() + shippingService.createOrder(this, orderRequest.getProduct());
+    public void process(OrderRequest orderRequest) {
+        GlutenFreeShopProducer glutenFreeShopProducer = new GlutenFreeShopProducer(informationService, orderRepository, shippingService, productOrderService);
+        FoodDeliveryProcess foodDeliveryProcess = new FoodDeliveryProcess();
+        OrderDto newOrder = foodDeliveryProcess.repeatableDeliveryProcess(orderRequest, glutenFreeShopProducer);
+        if(newOrder.isOrdered()) {
+            double invoice = orderRequest.getProduct().getValueOfInvoice() + shippingService.createOrder(glutenFreeShopProducer, orderRequest.getProduct());
             informationService.informUser(orderRequest.getUser(), orderRequest.getShippingService(), invoice);
-            informationService.informManufacturer(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getShippingService());
-            informationService.informShippingCompany(orderRequest.getUser(), orderRequest.getProduct());
-            orderRepository.createOrder(orderRequest.getUser(), orderRequest.getProduct());
-            return new OrderDto(orderRequest.getUser(), true);
-        } else {
-            return new OrderDto(orderRequest.getUser(), false);
         }
+    }
+
+    public InformationService getInformationService() {
+        return informationService;
+    }
+
+    public OrderRepository getOrderRepository() {
+        return orderRepository;
+    }
+
+    public ShippingService getShippingService() {
+        return shippingService;
+    }
+
+    public ProductOrderService getProductOrderService() {
+        return productOrderService;
     }
 }

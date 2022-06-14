@@ -2,5 +2,9 @@ package com.kodilla.good.patterns.challenges.food.delivery;
 
 public interface Manufacturer {
 
-    public OrderDto process(OrderRequest orderRequest);
+    public void process(OrderRequest orderRequest);
+    public ProductOrderService getProductOrderService();
+    public InformationService getInformationService();
+    public OrderRepository getOrderRepository();
+    public ShippingService getShippingService();
 }

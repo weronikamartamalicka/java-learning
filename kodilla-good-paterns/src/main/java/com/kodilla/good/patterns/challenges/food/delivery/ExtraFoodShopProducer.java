@@ -16,18 +16,34 @@ public final class ExtraFoodShopProducer implements Manufacturer{
     }
 
     @Override
-    public OrderDto process(OrderRequest orderRequest) {
-        boolean idOrdered = productOrderService.order(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getShippingService(), orderRequest.getTime());
+    public void process(OrderRequest orderRequest) {
+        ExtraFoodShopProducer extraFoodShopProducer = new ExtraFoodShopProducer(informationService, orderRepository, productOrderService, shippingService, packageService);
+        FoodDeliveryProcess foodDeliveryProcess = new FoodDeliveryProcess();
         boolean isPackaged = packageService.createOrder(orderRequest.getProduct(), orderRequest.getCompanyName());
-        if(idOrdered && isPackaged) {
-            double invoice = orderRequest.getProduct().getValueOfInvoice() + shippingService.createOrder(this, orderRequest.getProduct());
+        OrderDto newOrder = foodDeliveryProcess.repeatableDeliveryProcess(orderRequest, extraFoodShopProducer);
+        if(newOrder.isOrdered() && isPackaged) {
+            double invoice = orderRequest.getProduct().getValueOfInvoice() + shippingService.createOrder(extraFoodShopProducer, orderRequest.getProduct());
             informationService.informUser(orderRequest.getUser(), orderRequest.getShippingService(), invoice);
-            informationService.informManufacturer(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getShippingService());
-            informationService.informShippingCompany(orderRequest.getUser(), orderRequest.getProduct());
-            orderRepository.createOrder(orderRequest.getUser(), orderRequest.getProduct());
-            return new OrderDto(orderRequest.getUser(), true);
-        } else {
-            return new OrderDto(orderRequest.getUser(), false);
         }
+    }
+
+    public InformationService getInformationService() {
+        return informationService;
+    }
+
+    public OrderRepository getOrderRepository() {
+        return orderRepository;
+    }
+
+    public ProductOrderService getProductOrderService() {
+        return productOrderService;
+    }
+
+    public ShippingService getShippingService() {
+        return shippingService;
+    }
+
+    public PackageService getPackageService() {
+        return packageService;
     }
 }

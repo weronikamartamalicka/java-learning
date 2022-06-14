@@ -14,15 +14,25 @@ public final class HealthyShopProducer implements Manufacturer {
     }
 
     @Override
-    public OrderDto process(OrderRequest orderRequest) {
-        boolean idOrdered = productOrderService.order(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getShippingService(), orderRequest.getTime());
-        if(idOrdered) {
-            informationService.informManufacturer(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getShippingService());
-            informationService.informShippingCompany(orderRequest.getUser(), orderRequest.getProduct());
-            orderRepository.createOrder(orderRequest.getUser(), orderRequest.getProduct());
-            return new OrderDto(orderRequest.getUser(), true);
-        } else {
-            return new OrderDto(orderRequest.getUser(), false);
-        }
+    public void process(OrderRequest orderRequest) {
+        FoodDeliveryProcess foodDeliveryProcess = new FoodDeliveryProcess();
+        HealthyShopProducer healthyShopProducer = new HealthyShopProducer(informationService, orderRepository, productOrderService, shippingService);
+        foodDeliveryProcess.repeatableDeliveryProcess(orderRequest, healthyShopProducer);
+    }
+
+    public InformationService getInformationService() {
+        return informationService;
+    }
+
+    public OrderRepository getOrderRepository() {
+        return orderRepository;
+    }
+
+    public ProductOrderService getProductOrderService() {
+        return productOrderService;
+    }
+
+    public ShippingService getShippingService() {
+        return shippingService;
     }
 }
