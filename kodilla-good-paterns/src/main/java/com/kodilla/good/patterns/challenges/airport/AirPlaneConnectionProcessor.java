@@ -26,6 +26,8 @@ public final class AirPlaneConnectionProcessor {
         Map<DepartureAirport, ArrivalAirport> filteredConnectingFlights = filteredDepartureConnections.entrySet().stream()
                 .filter(e -> e.getValue().equals(filteredArrivalConnections.entrySet().stream().map(es -> es.getKey())) && e.getKey().equals(nameOfDepartureAirport))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        System.out.println(filteredArrivalConnections);
+        System.out.println(filteredConnectingFlights);
 
         if(filteredConnections.size() > 0) {
             return new ConnectionDto(airPlaneConnection, true);
