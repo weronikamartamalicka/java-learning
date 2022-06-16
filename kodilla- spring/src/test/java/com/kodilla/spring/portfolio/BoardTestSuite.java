@@ -23,12 +23,12 @@ public class BoardTestSuite {
             toDoList.stream().forEach(System.out::println);
         }
         if(context.containsBean("listInProgress")) {
-            ArrayList<String> inProgressList = (ArrayList<String>) board.getToDoList().getTasks();
+            ArrayList<String> inProgressList = (ArrayList<String>) board.getInProgressList().getTasks();
             inProgressList.add("Learn JavaFx");
             inProgressList.stream().forEach(System.out::println);
         }
         if(context.containsBean("doneList")) {
-            ArrayList<String> doneList = (ArrayList<String>) board.getToDoList().getTasks();
+            ArrayList<String> doneList = (ArrayList<String>) board.getDoneList().getTasks();
             doneList.add("Be nice");
             doneList.stream().forEach(System.out::println);
         }
