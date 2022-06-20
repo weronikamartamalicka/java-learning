@@ -38,6 +38,17 @@ public final class DepartureAirport implements Airport {
     }
 
     @Override
+    public String toString() {
+        return "DepartureAirport{" +
+                "airportName='" + airportName + '\'' +
+                ", cityName='" + cityName + '\'' +
+                ", airportId=" + airportId +
+                ", proceedingFlights=" + proceedingFlights +
+                ", timeOfDeparture=" + timeOfDeparture +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || !(o instanceof DepartureAirport)) return false;

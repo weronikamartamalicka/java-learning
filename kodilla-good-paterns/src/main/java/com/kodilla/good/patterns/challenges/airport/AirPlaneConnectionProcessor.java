@@ -1,6 +1,7 @@
 package com.kodilla.good.patterns.challenges.airport;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public final class AirPlaneConnectionProcessor {
@@ -23,11 +24,12 @@ public final class AirPlaneConnectionProcessor {
         Map<DepartureAirport, ArrivalAirport> filteredArrivalConnections = airPlaneConnection.getFlightConnections().entrySet().stream()
                 .filter(e -> e.getValue().getAirportName().equals(nameOfArrivalAirport))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        Set<String> arrivalAirportNames = filteredArrivalConnections.keySet().stream().map(c -> c.getAirportName()).collect(Collectors.toSet());
+
         Map<DepartureAirport, ArrivalAirport> filteredConnectingFlights = filteredDepartureConnections.entrySet().stream()
-                .filter(e -> e.getValue().equals(filteredArrivalConnections.entrySet().stream().map(es -> es.getKey())) && e.getKey().equals(nameOfDepartureAirport))
+                .filter(e -> arrivalAirportNames.contains(e.getValue().getAirportName()))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-        System.out.println(filteredArrivalConnections);
-        System.out.println(filteredConnectingFlights);
 
         if(filteredConnections.size() > 0) {
             return new ConnectionDto(airPlaneConnection, true);
