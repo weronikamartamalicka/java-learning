@@ -45,9 +45,7 @@ public class TaskFactoryTestSuite {
 
         ExecutedTasks executedTasks = new ExecutedTasks();
 
-        executedTasks.storeTaskStatus(shoppingTask);
-        executedTasks.storeTaskStatus(paintingTask);
-        executedTasks.storeTaskStatus(drivingTask);
+        executedTasks.storeTaskStatus(shoppingTask, paintingTask, drivingTask);
 
         Map<Boolean, String> taskMap = executedTasks.getTaskStatus();
 

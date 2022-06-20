@@ -6,12 +6,16 @@ import java.util.Map;
 public final class ExecutedTasks {
     private final Map taskStatus = new HashMap<>();
 
-    public void storeTaskStatus(Task task) {
+    public void storeTaskStatus(Task... task) {
 
-        String taskName = task.getTaskName();
-        Boolean isTaskExecuted = task.isTaskExecuted();
+        for(Task executingTask : task) {
+            String taskName = executingTask.getTaskName();
+            Boolean isTaskExecuted = executingTask.isTaskExecuted();
 
-        taskStatus.put(isTaskExecuted, taskName);
+            taskStatus.put(isTaskExecuted, taskName);
+        }
+
+
     }
 
     public Map getTaskStatus() {
