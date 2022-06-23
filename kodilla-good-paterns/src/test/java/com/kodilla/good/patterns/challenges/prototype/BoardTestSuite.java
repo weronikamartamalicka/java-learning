@@ -26,9 +26,9 @@ public class BoardTestSuite {
                 .forEach(n -> doneList.getTasks().add(new Task("Done Task number " + n)));
 
         Board board = new Board("Board number 1");
-        board.getLists().add(listToDo);
-        board.getLists().add(listInProgress);
-        board.getLists().add(doneList);
+        board.addTasksList(listToDo);
+        board.addTasksList(listInProgress);
+        board.addTasksList(doneList);
 
         Board clonedBoard = null;
         try {
@@ -50,7 +50,7 @@ public class BoardTestSuite {
         System.out.println(clonedBoard);
         System.out.println(deepClonedBoard);
 
-        board.getLists().remove(listToDo);
+        board.removeTasksList(doneList);
 
         assertEquals(2, board.getLists().size());
         assertEquals(2, clonedBoard.getLists().size());

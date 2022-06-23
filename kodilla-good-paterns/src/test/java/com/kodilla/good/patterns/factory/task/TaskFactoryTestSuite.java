@@ -47,7 +47,7 @@ public class TaskFactoryTestSuite {
 
         executedTasks.storeTaskStatus(shoppingTask, paintingTask, drivingTask);
 
-        Map<Boolean, String> taskMap = executedTasks.getTaskStatus();
+        Map<String, Boolean> taskMap = executedTasks.getTaskStatus();
 
         System.out.println(taskMap.values());
 

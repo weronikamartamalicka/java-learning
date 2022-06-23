@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class ExecutedTasks {
-    private final Map taskStatus = new HashMap<>();
+    private final Map<String, Boolean> taskStatus = new HashMap<>();
 
     public void storeTaskStatus(Task... task) {
 
@@ -12,13 +12,13 @@ public final class ExecutedTasks {
             String taskName = executingTask.getTaskName();
             Boolean isTaskExecuted = executingTask.isTaskExecuted();
 
-            taskStatus.put(isTaskExecuted, taskName);
+            taskStatus.put(taskName, isTaskExecuted);
         }
 
 
     }
 
-    public Map getTaskStatus() {
+    public Map<String, Boolean> getTaskStatus() {
         return new HashMap<>(taskStatus);
     }
 }
