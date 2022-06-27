@@ -1,7 +1,7 @@
 package com.kodilla.hibernate.taskList.dao;
 
-import com.kodilla.hibernate.taskList.TaskList;
-import com.kodilla.hibernate.taskList.TaskListDao;
+import com.kodilla.hibernate.task.TaskList;
+import com.kodilla.hibernate.task.dao.TaskListDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
