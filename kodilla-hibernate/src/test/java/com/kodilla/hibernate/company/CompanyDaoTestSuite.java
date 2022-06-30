@@ -23,7 +23,6 @@ public class CompanyDaoTestSuite {
     @Test
     void testSaveManyToMany() {
 
-        companyDao.deleteAll();
 
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
