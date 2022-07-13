@@ -11,6 +11,10 @@ import java.util.Objects;
         query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :LETTERS",
         resultClass = Company.class
 )
+@NamedQuery(
+        name = "Company.getCompanyNamesIsContaining",
+        query = "FROM COMPANY WHERE name LIKE  %:LETTERS%"
+)
 
 @Entity
 @Table(name = "COMPANIES")

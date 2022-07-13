@@ -6,11 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.getEmployeesWithSurname",
+                query = "FROM Employee WHERE lastname = :LASTNAME"
+        ),
+        @NamedQuery(
+                name = "Employee.getEmployeeNamesIsContaining",
+                query = "FROM Employee WHERE lastname LIKE %:LETTERS%)"
+        )
+})
 
-@NamedQuery(
-        name = "Employee.getEmployeesWithSurname",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
-)
 
 @Entity
 @Table(name = "EMPLOYEES")

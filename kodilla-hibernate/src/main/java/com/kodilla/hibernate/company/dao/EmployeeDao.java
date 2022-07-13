@@ -1,6 +1,7 @@
 package com.kodilla.hibernate.company.dao;
 
 import com.kodilla.hibernate.company.Employee;
+import com.kodilla.hibernate.manytomany.exception.FacadeException;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -15,4 +16,7 @@ public interface EmployeeDao extends CrudRepository<Employee, Integer> {
 
     @Query
     List<Employee> getEmployeesWithSurname(@Param("LASTNAME") String surname);
+
+    @Query
+    List<Employee> getEmployeeNamesIsContaining(@Param("LETTERS") String letters) throws FacadeException;
 }
