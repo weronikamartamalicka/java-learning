@@ -2,7 +2,6 @@ package com.kodilla.good.paterns.main;
 
 
 import com.kodilla.good.paterns.challenges.food.delivery.*;
-import com.kodilla.good.patterns.challenges.food.delivery.*;
 
 public class FoodDeliveryServiceApplication {
 

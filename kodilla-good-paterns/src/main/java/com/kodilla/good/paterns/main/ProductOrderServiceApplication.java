@@ -1,7 +1,6 @@
 package com.kodilla.good.paterns.main;
 
 import com.kodilla.good.paterns.challenges.*;
-import com.kodilla.good.paterns.good.patterns.challenges.*;
 
 public class ProductOrderServiceApplication {
 
