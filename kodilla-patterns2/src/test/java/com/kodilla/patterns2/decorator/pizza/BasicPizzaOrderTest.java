@@ -1,5 +1,6 @@
-package com.kodilla.decorator.pizza;
+package com.kodilla.patterns2.decorator.pizza;
 
+import com.kodilla.patterns2.decorator.pizza.*;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

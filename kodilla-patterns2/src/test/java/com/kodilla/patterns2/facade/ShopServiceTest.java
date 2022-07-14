@@ -1,14 +1,12 @@
-package com.kodilla.facade;
+package com.kodilla.patterns2.facade;
 
-import com.kodilla.facade.api.ItemDto;
-import com.kodilla.facade.api.OrderDto;
-import com.kodilla.facade.api.OrderFacade;
-import com.kodilla.facade.api.OrderProcessingException;
+import com.kodilla.patterns2.facade.ShopService;
+import com.kodilla.patterns2.facade.api.ItemDto;
+import com.kodilla.patterns2.facade.api.OrderDto;
+import com.kodilla.patterns2.facade.api.OrderFacade;
+import com.kodilla.patterns2.facade.api.OrderProcessingException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 class ShopServiceTest {

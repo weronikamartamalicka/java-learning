@@ -1,4 +1,4 @@
-package com.kodilla.good.paterns.main;
+package com.kodilla.good.paterns.challenges;
 
 import com.kodilla.good.paterns.challenges.*;
 

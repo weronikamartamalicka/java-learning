@@ -1,4 +1,4 @@
-package com.kodilla.aop.calculator;
+package com.kodilla.patterns2.aop.calculator;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

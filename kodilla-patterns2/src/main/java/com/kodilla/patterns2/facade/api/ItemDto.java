@@ -1,4 +1,4 @@
-package com.kodilla.facade.api;
+package com.kodilla.patterns2.facade.api;
 
 public final class ItemDto {
 

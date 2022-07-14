@@ -1,4 +1,4 @@
-package com.kodilla.good.paterns.main;
+package com.kodilla.good.paterns.enums.hotel;
 
 import com.kodilla.good.paterns.enums.hotel.PriceList;
 import com.kodilla.good.paterns.enums.hotel.Season;

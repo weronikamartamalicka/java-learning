@@ -1,4 +1,4 @@
-package com.kodilla.good.paterns.main;
+package com.kodilla.good.paterns.challenges.airport;
 
 import com.kodilla.good.paterns.challenges.airport.AirPlaneConnectionProcessor;
 import com.kodilla.good.paterns.challenges.airport.ConnectionDto;
