@@ -56,7 +56,7 @@ public class CompanyFacadeTestSuite {
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
 
-        List<Company> companiesList = companyFacade.findCompanyNameIsContaining("Ma");
+        List<Company> companiesList = companyFacade.findCompanyNameIsContaining("a");
         List<Employee> employeeList = companyFacade.findEmployeeNameIsContaining("la");
 
         assertEquals(3, companiesList.size());

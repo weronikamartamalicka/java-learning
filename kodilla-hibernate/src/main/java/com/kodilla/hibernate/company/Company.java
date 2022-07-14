@@ -13,7 +13,7 @@ import java.util.Objects;
 )
 @NamedQuery(
         name = "Company.getCompanyNamesIsContaining",
-        query = "FROM COMPANY WHERE name LIKE  %:LETTERS%"
+        query = "FROM Company WHERE name LIKE concat('%',:LETTERS, '%')"
 )
 
 @Entity
