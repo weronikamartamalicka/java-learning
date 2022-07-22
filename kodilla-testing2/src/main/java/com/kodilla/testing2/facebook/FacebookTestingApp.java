@@ -12,8 +12,8 @@ public class FacebookTestingApp {
     public final static String XPATH_COOKIES_SELECT = "//div[@class = \"_9xo5\"]/button[1]";
     public final static String XPATH_NEW_ACCOUNT = "//div[@class = \"_6ltg\"]/a";
     public final static String XPATH_BIRTHDAY_TEXTAREA = "//*[@id=\"day\"]";
-    public final static String XPATH_BIRTHMONTH_TEXTAREA = "//*[@id=\"month\"]";
-    public final static String XPATH_BIRTHYEAR_TEXTAREA = "//*[@id=\"year\"]";
+    public final static String XPATH_BIRTHMONTH_TEXTAREA = "//select[@id=\"month\"]";
+    public final static String XPATH_BIRTHYEAR_TEXTAREA = "//select[@id=\"year\"]";
 
     public static void main(String[] args) {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);

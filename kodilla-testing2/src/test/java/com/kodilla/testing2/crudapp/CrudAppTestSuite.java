@@ -62,13 +62,15 @@ public class CrudAppTestSuite {
         Thread.sleep(5000);
 
         driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
-                .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]")).getText().equals(taskName))
+                .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
+                        .getText().equals(taskName))
                 .forEach(theForm -> {
                     WebElement selectForm = theForm.findElement(By.xpath(".//select[1]"));
                     Select selectBox = new Select(selectForm);
                     selectBox.selectByIndex(1);
 
-                    WebElement button = theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]"));
+                    WebElement button = theForm.findElement(By.xpath
+                            (".//button[contains(@class, \"card-creation\")]"));
                     button.click();
                 });
 
@@ -80,11 +82,16 @@ public class CrudAppTestSuite {
         final String TRELLO_URL = "https://trello.com/login";
 
         driver.get(TRELLO_URL);
-        WebElement userNameField = driver.findElement(By.id("user"));
-        userNameField.sendKeys("weronikamarta.malicka@gmail.com");
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("@Lateks69");
-        driver.findElement(By.id("login")).click();
+
+        driver.findElement(By.id("user")).sendKeys("weronikamarta.malicka@gmail.com");
+        driver.findElement(By.id("password")).sendKeys("@Torres29021406");
+        WebElement el = driver.findElement(By.id("login"));
+        el.submit();
+
+        Thread.sleep(4000);
+
+        driver.findElement(By.id("password")).sendKeys("@Torres29021406");
+        driver.findElement(By.id("login-submit")).submit();
 
         Thread.sleep(4000);
 
