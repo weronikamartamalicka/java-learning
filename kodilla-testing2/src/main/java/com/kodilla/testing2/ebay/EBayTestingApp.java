@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class EBayTestingApp {
-    public final static String XPATH_SEARCH_FIELD = "//div[@id = \"gh-ac-box2\"]/input[1]";
+    public final static String XPATH_SEARCH_FIELD = "//*[@id=\"gh-ac\"]";
 
     public static void main(String[] args) {
 
