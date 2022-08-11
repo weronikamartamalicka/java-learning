@@ -18,20 +18,24 @@ public class StoredProcTestSuite {
         Statement statement = dbManager.getConnection().createStatement();
         statement.executeUpdate(sqlUpdate);
 
-        String sqlCheck = "SELECT COUNT(*) AS HOW_MANY FROM READERS WHERE VIP_LEVEL = 'Not set'";
-        ResultSet resultSet = statement.executeQuery(sqlCheck);
-
+        Statement statementTwo = dbManager.getConnection().createStatement();
         String sqlProcedureCall = "CALL UpdateVipLevels()";
-        statement.execute(sqlProcedureCall);
+        statementTwo.execute(sqlProcedureCall);
+
+        Statement statementOne = dbManager.getConnection().createStatement();
+        String sqlCheck = "SELECT COUNT(*) AS HOW_MANY FROM READERS WHERE VIP_LEVEL = 'Not set'";
+        ResultSet resultSet = statementOne.executeQuery(sqlCheck);
 
         int howMany = -1;
         if (resultSet.next()) {
             howMany = resultSet.getInt("HOW_MANY");
         }
 
-        assertEquals(howMany, 0);
+        assertEquals(0, howMany);
         resultSet.close();
         statement.close();
+        statementOne.close();
+        statementTwo.close();
     }
 
     @Test
@@ -42,17 +46,22 @@ public class StoredProcTestSuite {
         statement.executeUpdate(sqlUpdate);
 
         String sqlProcedure = "CALL UpdateBestsellers()";
-        statement.execute(sqlProcedure);
+        Statement statementOne = dbManager.getConnection().createStatement();
+        statementOne.execute(sqlProcedure);
 
-        String sqlQuery = "SELECT COUNT(*) FROM BOOKS AS HOW_MANY_NOT_BESTSELLERS WHERE BESTSELLER = 0";
-        ResultSet resultSet = statement.executeQuery(sqlQuery);
+        Statement statementTwo = dbManager.getConnection().createStatement();
+        String sqlQuery = "SELECT COUNT(*) AS HOW_MANY FROM BOOKS WHERE BESTSELLER = 0";
+        ResultSet resultSet = statementTwo.executeQuery(sqlQuery);
 
         int howMany = -1;
         if (resultSet.next()) {
-            howMany = resultSet.getInt("HOW_MANY_NOT_BESTSELLERS");
+            howMany = resultSet.getInt("HOW_MANY");
         }
-        assertEquals(0,howMany);
+        assertEquals(1,howMany);
+
         resultSet.close();
         statement.close();
+        statementOne.close();
+        statementTwo.close();
     }
 }

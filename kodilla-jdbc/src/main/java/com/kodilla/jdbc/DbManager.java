@@ -18,7 +18,7 @@ public enum DbManager {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/kodilla_course2" +
                             "?serverTimezone=Europe/Warsaw" +
-                            "&useSSL=False",
+                            "&useSSL=False&allowPublicKeyRetrieval=true",
                     connectionProps);
         } catch (SQLException e) {
             throw new ExceptionInInitializerError(e);

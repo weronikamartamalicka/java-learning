@@ -96,7 +96,8 @@ public class CrudAppTestSuite {
         Thread.sleep(4000);
 
         driver.findElements(By.xpath("//a[@class=\"board-title\"]")).stream()
-                .filter(aHref -> aHref.findElements(By.xpath(".//div[@title=\"Kodilla Application\"]")).size() > 0)
+                .filter(aHref -> aHref.findElements(By.xpath
+                        (".//div[@title=\"Kodilla Application\"]")).size() > 0)
                 .forEach(WebElement::click);
 
         Thread.sleep(4000);

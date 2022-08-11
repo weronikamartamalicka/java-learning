@@ -6,7 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class EBayTestingApp {
-    public final static String XPATH_SEARCH_FIELD = "//*[@id=\"gh-ac\"]";
+    private final static String XPATH_SEARCH_FIELD = "//*[@id=\"gh-ac\"]";
+    private final static String NAME = "_nkw";
+
 
     public static void main(String[] args) {
 
@@ -15,7 +17,8 @@ public class EBayTestingApp {
 
         //driver.findElement(By.xpath("//*[@id=\"L2AGLb\"]/div")).click();
 
-        WebElement element = driver.findElement(By.xpath(XPATH_SEARCH_FIELD));
+        //WebElement element = driver.findElement(By.xpath(XPATH_SEARCH_FIELD));
+        WebElement element = driver.findElement((By.name(NAME)));
         element.sendKeys("Laptop");
         element.submit();
 
