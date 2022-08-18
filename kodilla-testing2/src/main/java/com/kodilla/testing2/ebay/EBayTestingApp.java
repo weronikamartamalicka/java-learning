@@ -15,6 +15,7 @@ public class EBayTestingApp {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
         driver.get("https://www.ebay.com/");
 
+
         //driver.findElement(By.xpath("//*[@id=\"L2AGLb\"]/div")).click();
 
         //WebElement element = driver.findElement(By.xpath(XPATH_SEARCH_FIELD));
